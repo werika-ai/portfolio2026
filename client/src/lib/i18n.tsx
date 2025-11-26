@@ -78,6 +78,18 @@ type Translations = {
   footer: {
     rights: string;
   };
+  projectDetail: {
+    client: string;
+    role: string;
+    year: string;
+    challenge: string;
+    solution: string;
+    results: string;
+    nextProject: string;
+    prevProject: string;
+    visitLive: string;
+    overview: string;
+  };
 };
 
 const translations: Record<Language, Translations> = {
@@ -157,6 +169,18 @@ const translations: Record<Language, Translations> = {
     footer: {
       rights: "All rights reserved.",
     },
+    projectDetail: {
+      client: "Client",
+      role: "Role",
+      year: "Year",
+      challenge: "The Challenge",
+      solution: "The Solution",
+      results: "Results",
+      nextProject: "Next Project",
+      prevProject: "Previous Project",
+      visitLive: "Visit Live Site",
+      overview: "Overview",
+    },
   },
   es: {
     nav: {
@@ -233,6 +257,18 @@ const translations: Record<Language, Translations> = {
     },
     footer: {
       rights: "Todos los derechos reservados.",
+    },
+    projectDetail: {
+      client: "Cliente",
+      role: "Rol",
+      year: "Año",
+      challenge: "El Desafío",
+      solution: "La Solución",
+      results: "Resultados",
+      nextProject: "Siguiente Proyecto",
+      prevProject: "Proyecto Anterior",
+      visitLive: "Ver Sitio en Vivo",
+      overview: "Resumen",
     },
   },
 };
