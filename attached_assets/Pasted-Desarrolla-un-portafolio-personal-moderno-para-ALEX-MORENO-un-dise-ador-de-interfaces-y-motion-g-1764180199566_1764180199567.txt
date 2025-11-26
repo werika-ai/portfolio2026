@@ -1,0 +1,149 @@
+Desarrolla un portafolio personal moderno para "ALEX MORENO" - un diseñador de interfaces y motion graphics que necesita mostrar su trabajo de forma impactante y conseguir nuevos clientes.
+
+DISEÑO Y ESTÉTICA:
+- Paleta minimalista: fondo blanco puro (#FFFFFF), negro (#0A0A0A), un color de acento vibrante (#6366F1 - índigo)
+- Tipografía moderna: sans-serif geométrica para títulos (estilo Outfit), monospace para detalles técnicos
+- Diseño limpio con mucho espacio en blanco (whitespace al 55%)
+- Micro-interacciones en elementos interactivos
+- Grid system visible sutilmente
+
+HERO SECTION:
+- Diseño centrado y minimalista
+- Nombre grande en tipografía bold: "ALEX MORENO"
+- Rol/especialidad debajo: "UI/UX & Motion Designer"
+- Frase breve que describa el approach: "Diseñando experiencias digitales que impactan"
+- Avatar o foto profesional circular con borde sutil
+- Animación de typing effect en la descripción de rol
+- Scroll indicator con flecha animada hacia abajo
+- Botón CTA sutil: "Ver mi trabajo" con underline animation
+
+PROYECTOS/PORTFOLIO:
+- Grid asimétrico tipo Bento (diferentes tamaños de cards)
+- Cada proyecto muestra:
+  - Thumbnail o mockup del proyecto
+  - Título del proyecto
+  - Cliente o tipo de proyecto
+  - Tags de tecnología/categoría (UI Design, Motion, Branding)
+- Hover effect: imagen se hace zoom ligero + overlay con botón "Ver caso"
+- Filtros por categoría con animación smooth al cambiar
+- Diseño que prioriza proyectos más importantes con cards más grandes
+
+CASO DE ESTUDIO (página individual):
+- Hero image del proyecto en grande
+- Sección de overview con:
+  - Nombre del cliente/proyecto
+  - Rol desempeñado
+  - Año
+  - Categoría
+  - Herramientas utilizadas (con iconos)
+  - Link al proyecto vivo si aplica
+- El desafío: explicación del problema a resolver
+- La solución: approach y proceso
+- Galería de imágenes grandes mostrando el trabajo
+- Video demo si aplica (Vimeo/YouTube embed)
+- Resultados o métricas si disponibles
+- Navegación a proyecto anterior/siguiente
+
+SKILLS & HERRAMIENTAS:
+- Sección dividida en categorías:
+  - Design: Figma, Adobe XD, Sketch
+  - Motion: After Effects, Principle
+  - Development: HTML/CSS, Framer
+- Cada skill con:
+  - Ícono de la herramienta
+  - Nombre
+  - Barra de experiencia visual (sin porcentajes, solo barras elegantes)
+- Layout en grid de 3 columnas
+- Iconos con hover effect que los hace color
+
+SOBRE MÍ:
+- Layout split: foto grande a la izquierda (40%), texto a la derecha (60%)
+- Foto personal profesional pero relajada
+- Biografía de 3-4 párrafos sobre:
+  - Quién eres y tu filosofía de diseño
+  - Experiencia y trayectoria
+  - Qué te apasiona del diseño
+  - Qué buscas en proyectos
+- Botón para descargar CV en PDF
+- Links a redes profesionales (LinkedIn, Dribbble, Behance)
+
+PROCESO DE TRABAJO:
+- Timeline visual o diagrama de 4-5 pasos:
+  1. Discovery & Research
+  2. Ideation & Wireframes
+  3. Design & Prototype
+  4. Testing & Iteration
+  5. Delivery & Support
+- Cada paso con ícono y descripción breve
+- Diseño en línea horizontal con conectores
+
+TESTIMONIALES:
+- Slider minimalista de 2-3 testimoniales de clientes
+- Cada uno con:
+  - Quote del cliente
+  - Nombre y puesto
+  - Empresa
+  - Avatar o logo de empresa
+- Diseño tipo card elevada con sombra suave
+- Navegación con dots debajo
+
+EXPERIENCIA/COLABORACIONES:
+- Logos de empresas con las que has trabajado
+- Diseño en grid o fila horizontal
+- Logos en escala de grises que se hacen color al hacer hover
+- "Clientes y colaboraciones" como título
+
+BLOG/ARTICULOS (opcional):
+- Grid de 3 artículos más recientes si tienes blog
+- Cada artículo con:
+  - Imagen featured
+  - Título
+  - Fecha
+  - Extracto breve
+  - Tiempo de lectura
+- Link a "Ver todos los artículos"
+
+CONTACTO:
+- Sección destacada con fondo de color de acento (#6366F1)
+- Headline grande: "¿Tienes un proyecto en mente?"
+- Subheadline: "Hablemos sobre cómo puedo ayudarte"
+- Formulario simple con campos:
+  - Nombre
+  - Email
+  - Tipo de proyecto (dropdown)
+  - Mensaje
+  - Presupuesto aproximado (opcional)
+- Botón "Enviar mensaje" con loading animation
+- Alternativas de contacto:
+  - Email directo
+  - LinkedIn
+  - Calendly link para agendar call
+  - Tiempo de respuesta estimado
+
+FOOTER:
+- Minimalista y limpio
+- Logo o nombre en tipografía pequeña
+- Links a redes sociales (iconos simples)
+- "Disponible para proyectos freelance"
+- Copyright con año dinámico
+
+CARACTERÍSTICAS TÉCNICAS:
+- Single page application con smooth scroll
+- Navegación fija en top con logo y links
+- Scroll animations (fade in, slide up) en elementos
+- Lazy loading de imágenes de proyectos
+- Parallax muy sutil en hero section
+- Transiciones suaves entre secciones
+- Modo oscuro toggle (bonus)
+- Cursor personalizado en desktop (círculo que sigue el mouse)
+- Loading screen con logo o nombre animándose
+
+MOBILE OPTIMIZATION:
+- Stack vertical de todo el contenido
+- Menú hamburguesa animado
+- Proyectos en 1 columna
+- Touch-friendly buttons (mínimo 44x44px)
+- Galería swipeable en proyectos
+- Formulario optimizado para mobile
+
+El diseño debe reflejar tus habilidades como diseñador - limpio, moderno, con atención al detalle y excelente UX. Que el portfolio mismo sea una muestra de tu trabajo.
