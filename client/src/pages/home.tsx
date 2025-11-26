@@ -6,24 +6,25 @@ import Skills from "@/components/sections/skills";
 import About from "@/components/sections/about";
 import Contact from "@/components/sections/contact";
 import Process from "@/components/sections/process";
-import Testimonials from "@/components/sections/testimonials";
 import Experience from "@/components/sections/experience";
+import { LanguageProvider } from "@/lib/i18n";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background text-foreground font-sans selection:bg-accent/20 selection:text-accent">
-      <Navbar />
-      <main>
-        <Hero />
-        <Experience />
-        <Projects />
-        <Process />
-        <About />
-        <Skills />
-        <Testimonials />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
+    <LanguageProvider>
+      <div className="min-h-screen bg-background text-foreground font-sans selection:bg-accent/20 selection:text-accent">
+        <Navbar />
+        <main>
+          <Hero />
+          <Experience />
+          <Projects />
+          <Process />
+          <About />
+          <Skills />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
+    </LanguageProvider>
   );
 }

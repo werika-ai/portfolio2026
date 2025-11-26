@@ -1,19 +1,21 @@
 import { Link } from "wouter";
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Globe } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-
-const navLinks = [
-  { name: "Projects", href: "#projects" },
-  { name: "About", href: "#about" },
-  { name: "Skills", href: "#skills" },
-  { name: "Contact", href: "#contact" },
-];
+import { useLanguage } from "@/lib/i18n";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { t, language, setLanguage } = useLanguage();
+
+  const navLinks = [
+    { name: t.nav.projects, href: "#projects" },
+    { name: t.nav.about, href: "#about" },
+    { name: t.nav.skills, href: "#skills" },
+    { name: t.nav.contact, href: "#contact" },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,6 +31,10 @@ export default function Navbar() {
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
+  };
+
+  const toggleLanguage = () => {
+    setLanguage(language === "en" ? "es" : "en");
   };
 
   return (
@@ -55,22 +61,41 @@ export default function Navbar() {
               {link.name}
             </button>
           ))}
+          
+          <button 
+            onClick={toggleLanguage}
+            className="flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors px-2"
+          >
+            <Globe size={16} />
+            {language.toUpperCase()}
+          </button>
+
           <Button 
             variant="outline" 
             className="rounded-full border-black/10 hover:border-accent hover:text-accent transition-colors"
             onClick={() => scrollToSection("#contact")}
           >
-            Let's Talk
+            {t.nav.letsTalk}
           </Button>
         </div>
 
         {/* Mobile Toggle */}
-        <button
-          className="md:hidden text-foreground"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        <div className="md:hidden flex items-center gap-4">
+          <button 
+            onClick={toggleLanguage}
+            className="flex items-center gap-1 text-sm font-medium text-muted-foreground"
+          >
+            <Globe size={16} />
+            {language.toUpperCase()}
+          </button>
+          
+          <button
+            className="text-foreground"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}

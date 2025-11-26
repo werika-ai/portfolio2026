@@ -1,46 +1,49 @@
 import { motion } from "framer-motion";
 import { Search, Lightbulb, PenTool, TestTube, Rocket } from "lucide-react";
-
-const steps = [
-  {
-    id: 1,
-    title: "Discovery",
-    description: "Understanding your goals, audience, and market position.",
-    icon: Search
-  },
-  {
-    id: 2,
-    title: "Ideation",
-    description: "Brainstorming concepts and creating low-fidelity wireframes.",
-    icon: Lightbulb
-  },
-  {
-    id: 3,
-    title: "Design",
-    description: "Crafting high-fidelity visuals and interactive prototypes.",
-    icon: PenTool
-  },
-  {
-    id: 4,
-    title: "Testing",
-    description: "Validating decisions with real users and iterating.",
-    icon: TestTube
-  },
-  {
-    id: 5,
-    title: "Delivery",
-    description: "Handing over pixel-perfect assets and documentation.",
-    icon: Rocket
-  }
-];
+import { useLanguage } from "@/lib/i18n";
 
 export default function Process() {
+  const { t } = useLanguage();
+
+  const steps = [
+    {
+      id: 1,
+      title: t.process.steps.discovery.title,
+      description: t.process.steps.discovery.description,
+      icon: Search
+    },
+    {
+      id: 2,
+      title: t.process.steps.ideation.title,
+      description: t.process.steps.ideation.description,
+      icon: Lightbulb
+    },
+    {
+      id: 3,
+      title: t.process.steps.design.title,
+      description: t.process.steps.design.description,
+      icon: PenTool
+    },
+    {
+      id: 4,
+      title: t.process.steps.testing.title,
+      description: t.process.steps.testing.description,
+      icon: TestTube
+    },
+    {
+      id: 5,
+      title: t.process.steps.delivery.title,
+      description: t.process.steps.delivery.description,
+      icon: Rocket
+    }
+  ];
+
   return (
     <section className="py-24 bg-white">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-sm font-mono text-accent mb-2 uppercase tracking-widest">How I Work</h2>
-          <h3 className="text-3xl md:text-4xl font-bold">My Process</h3>
+          <h2 className="text-sm font-mono text-accent mb-2 uppercase tracking-widest">{t.process.eyebrow}</h2>
+          <h3 className="text-3xl md:text-4xl font-bold">{t.process.title}</h3>
         </div>
 
         <div className="relative">
@@ -55,7 +58,7 @@ export default function Process() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white p-6 rounded-xl border border-transparent hover:border-accent/20 hover:shadow-lg transition-all duration-300 group"
+                className="bg-white p-6 rounded-xl transition-all duration-300 group"
               >
                 <div className="w-12 h-12 bg-secondary rounded-full flex items-center justify-center mb-4 mx-auto group-hover:bg-accent group-hover:text-white transition-colors relative">
                   <step.icon size={20} />

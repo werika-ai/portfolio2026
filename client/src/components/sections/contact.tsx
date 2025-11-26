@@ -9,6 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
 import { Mail, Calendar, Send } from "lucide-react";
+import { useLanguage } from "@/lib/i18n";
 
 const formSchema = z.object({
   name: z.string().min(2, "Name is required"),
@@ -18,6 +19,7 @@ const formSchema = z.object({
 });
 
 export default function Contact() {
+  const { t } = useLanguage();
   const { toast } = useToast();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -48,10 +50,10 @@ export default function Contact() {
           
           <div className="relative z-10 grid md:grid-cols-2 gap-16">
             <div className="text-white">
-              <h2 className="text-sm font-mono opacity-80 mb-2 uppercase tracking-widest">Get in Touch</h2>
-              <h3 className="text-4xl md:text-5xl font-bold mb-6">Have a project in mind?</h3>
+              <h2 className="text-sm font-mono opacity-80 mb-2 uppercase tracking-widest">{t.contact.eyebrow}</h2>
+              <h3 className="text-4xl md:text-5xl font-bold mb-6">{t.contact.title}</h3>
               <p className="text-white/80 text-lg mb-8 max-w-md">
-                Let's talk about how I can help you create the next big thing. I'm currently open for new opportunities.
+                {t.contact.description}
               </p>
               
               <div className="space-y-6">
@@ -60,7 +62,7 @@ export default function Contact() {
                     <Mail className="text-white" />
                   </div>
                   <div>
-                    <p className="text-sm text-white/60">Email me at</p>
+                    <p className="text-sm text-white/60">{t.contact.emailLabel}</p>
                     <a href="mailto:hello@alexmoreno.design" className="text-lg font-medium hover:underline">hello@alexmoreno.design</a>
                   </div>
                 </div>
@@ -70,7 +72,7 @@ export default function Contact() {
                     <Calendar className="text-white" />
                   </div>
                   <div>
-                    <p className="text-sm text-white/60">Book a call</p>
+                    <p className="text-sm text-white/60">{t.contact.bookCall}</p>
                     <a href="#" className="text-lg font-medium hover:underline">Calendly/alexmoreno</a>
                   </div>
                 </div>
@@ -85,7 +87,7 @@ export default function Contact() {
                     name="name"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Name</FormLabel>
+                        <FormLabel>{t.contact.form.name}</FormLabel>
                         <FormControl>
                           <Input placeholder="John Doe" {...field} className="bg-secondary/30 border-transparent focus:bg-white" />
                         </FormControl>
@@ -99,7 +101,7 @@ export default function Contact() {
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Email</FormLabel>
+                        <FormLabel>{t.contact.form.email}</FormLabel>
                         <FormControl>
                           <Input placeholder="john@example.com" {...field} className="bg-secondary/30 border-transparent focus:bg-white" />
                         </FormControl>
@@ -113,18 +115,18 @@ export default function Contact() {
                     name="type"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Project Type</FormLabel>
+                        <FormLabel>{t.contact.form.type}</FormLabel>
                         <Select onValueChange={field.onChange} defaultValue={field.value}>
                           <FormControl>
                             <SelectTrigger className="bg-secondary/30 border-transparent focus:bg-white">
-                              <SelectValue placeholder="Select a category" />
+                              <SelectValue placeholder={t.contact.form.typePlaceholder} />
                             </SelectTrigger>
                           </FormControl>
                           <SelectContent>
-                            <SelectItem value="ui-ux">UI/UX Design</SelectItem>
-                            <SelectItem value="web">Web Development</SelectItem>
-                            <SelectItem value="motion">Motion Graphics</SelectItem>
-                            <SelectItem value="branding">Branding</SelectItem>
+                            <SelectItem value="ui-ux">{t.contact.form.types.uiux}</SelectItem>
+                            <SelectItem value="web">{t.contact.form.types.web}</SelectItem>
+                            <SelectItem value="motion">{t.contact.form.types.motion}</SelectItem>
+                            <SelectItem value="branding">{t.contact.form.types.branding}</SelectItem>
                           </SelectContent>
                         </Select>
                         <FormMessage />
@@ -137,10 +139,10 @@ export default function Contact() {
                     name="message"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Message</FormLabel>
+                        <FormLabel>{t.contact.form.message}</FormLabel>
                         <FormControl>
                           <Textarea 
-                            placeholder="Tell me about your project goals..." 
+                            placeholder={t.contact.form.messagePlaceholder}
                             className="min-h-[120px] bg-secondary/30 border-transparent focus:bg-white resize-none" 
                             {...field} 
                           />
@@ -151,7 +153,7 @@ export default function Contact() {
                   />
                   
                   <Button type="submit" className="w-full bg-accent hover:bg-accent/90 text-white rounded-xl h-12">
-                    Send Message <Send className="ml-2 w-4 h-4" />
+                    {t.contact.form.submit} <Send className="ml-2 w-4 h-4" />
                   </Button>
                 </form>
               </Form>

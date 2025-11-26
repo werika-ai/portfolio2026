@@ -3,9 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import financeImg from "@assets/generated_images/finance_dashboard_ui_mockup.png";
 import travelImg from "@assets/generated_images/travel_app_ui_mockup.png";
 import ecommerceImg from "@assets/generated_images/e-commerce_ui_mockup.png";
-import { useState } from "react";
-
-const categories = ["All", "UI/UX", "Motion", "Web Design"];
+import { useLanguage } from "@/lib/i18n";
 
 const projects = [
   {
@@ -13,7 +11,6 @@ const projects = [
     title: "FinTech Dashboard",
     category: "UI/UX",
     image: financeImg,
-    size: "large", // spans 2 columns
     tags: ["Figma", "React", "Chart.js"]
   },
   {
@@ -21,7 +18,6 @@ const projects = [
     title: "Wanderlust App",
     category: "Mobile",
     image: travelImg,
-    size: "small",
     tags: ["iOS", "SwiftUI", "Prototyping"]
   },
   {
@@ -29,62 +25,46 @@ const projects = [
     title: "Vogue E-Commerce",
     category: "Web Design",
     image: ecommerceImg,
-    size: "small",
     tags: ["Shopify", "Design System", "Conversion"]
   },
   {
     id: 4,
     title: "Neon Banking",
     category: "UI/UX",
-    image: financeImg, // Reusing for mockup
-    size: "small",
+    image: financeImg, 
     tags: ["App Design", "Dark Mode"]
   },
   {
     id: 5,
     title: "Urban Fashion",
     category: "Web Design",
-    image: ecommerceImg, // Reusing for mockup
-    size: "large",
+    image: ecommerceImg,
     tags: ["Webflow", "Animation", "Branding"]
+  },
+  {
+    id: 6,
+    title: "EcoTravel",
+    category: "Mobile",
+    image: travelImg,
+    tags: ["Green Tech", "Mobile App", "UX Research"]
   }
 ];
 
 export default function Projects() {
-  const [activeCategory, setActiveCategory] = useState("All");
-
-  const filteredProjects = activeCategory === "All" 
-    ? projects 
-    : projects.filter(p => p.category.includes(activeCategory) || p.category === activeCategory);
+  const { t } = useLanguage();
 
   return (
     <section id="projects" className="py-24 bg-secondary/30">
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-end mb-12">
           <div>
-            <h2 className="text-sm font-mono text-accent mb-2 uppercase tracking-widest">Selected Works</h2>
-            <h3 className="text-3xl md:text-4xl font-bold">Featured Projects</h3>
-          </div>
-          
-          <div className="flex space-x-2 mt-6 md:mt-0 overflow-x-auto pb-2 md:pb-0">
-            {categories.map(cat => (
-              <button
-                key={cat}
-                onClick={() => setActiveCategory(cat)}
-                className={`px-4 py-2 rounded-full text-sm transition-all whitespace-nowrap ${
-                  activeCategory === cat 
-                    ? "bg-foreground text-background" 
-                    : "bg-white text-muted-foreground hover:bg-white/80 border border-transparent hover:border-black/5"
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
+            <h2 className="text-sm font-mono text-accent mb-2 uppercase tracking-widest">{t.projects.eyebrow}</h2>
+            <h3 className="text-3xl md:text-4xl font-bold">{t.projects.title}</h3>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[400px]">
-          {filteredProjects.map((project, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {projects.map((project, index) => (
             <motion.div
               key={project.id}
               layout
@@ -92,9 +72,7 @@ export default function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`group relative rounded-2xl overflow-hidden bg-white shadow-sm hover:shadow-xl transition-all duration-500 cursor-pointer ${
-                project.size === "large" ? "md:col-span-2" : "md:col-span-1"
-              }`}
+              className="group relative rounded-2xl overflow-hidden bg-white shadow-sm hover:shadow-xl transition-all duration-500 cursor-pointer h-[400px]"
             >
               <img 
                 src={project.image} 
@@ -114,7 +92,7 @@ export default function Projects() {
                     ))}
                   </div>
                   <button className="flex items-center text-white font-medium border-b border-white pb-1 hover:text-accent hover:border-accent transition-colors">
-                    View Case Study <ArrowUpRight className="ml-2 w-4 h-4" />
+                    {t.projects.viewCase} <ArrowUpRight className="ml-2 w-4 h-4" />
                   </button>
                 </div>
               </div>

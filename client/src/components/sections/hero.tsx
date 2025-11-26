@@ -3,16 +3,17 @@ import { ArrowDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import avatarImage from "@assets/generated_images/professional_designer_avatar.png";
 import { useEffect, useState } from "react";
-
-const roles = ["UI/UX Designer", "Motion Designer", "Creative Developer"];
+import { useLanguage } from "@/lib/i18n";
 
 export default function Hero() {
+  const { t } = useLanguage();
   const [roleIndex, setRoleIndex] = useState(0);
   const [text, setText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    const currentRole = roles[roleIndex];
+    const roles = t.hero.roles;
+    const currentRole = roles[roleIndex % roles.length];
     const typeSpeed = isDeleting ? 50 : 100;
 
     const timeout = setTimeout(() => {
@@ -27,7 +28,7 @@ export default function Hero() {
     }, typeSpeed);
 
     return () => clearTimeout(timeout);
-  }, [text, isDeleting, roleIndex]);
+  }, [text, isDeleting, roleIndex, t.hero.roles]);
 
   const scrollToProjects = () => {
     document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
@@ -50,20 +51,19 @@ export default function Hero() {
           className="flex-1 text-center md:text-left"
         >
           <h2 className="text-sm md:text-base font-mono text-accent mb-4 tracking-widest uppercase">
-            Hello, I'm
+            {t.hero.greeting}
           </h2>
           <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-4 leading-tight">
             ALEX MORENO
           </h1>
           
           <div className="h-8 mb-6 text-xl md:text-2xl text-muted-foreground font-light">
-            I am a <span className="text-foreground font-medium">{text}</span>
+            <span className="text-foreground font-medium">{text}</span>
             <span className="animate-pulse">|</span>
           </div>
           
           <p className="text-muted-foreground max-w-lg mx-auto md:mx-0 mb-8 leading-relaxed">
-            Designing digital experiences that impact. I combine minimalist aesthetics 
-            with functional problem-solving to create products people love.
+            {t.hero.description}
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4">
@@ -71,14 +71,14 @@ export default function Hero() {
               onClick={scrollToProjects}
               className="rounded-full px-8 py-6 text-base bg-foreground hover:bg-accent transition-all duration-300"
             >
-              View My Work
+              {t.hero.viewWork}
             </Button>
             <Button 
               variant="ghost" 
               className="rounded-full px-8 py-6 text-base hover:bg-secondary/50"
               onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
             >
-              Contact Me
+              {t.hero.contactMe}
             </Button>
           </div>
         </motion.div>
